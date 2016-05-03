@@ -5,36 +5,36 @@
 
 </div>
 <div class="well">
-  <input type="checkbox" ng-model="category"/>
+  <input type="checkbox" ng-model="home.superpower.val"/>
   <label>Superpower</label>
   <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.pet.val"/>
   <label>Pet</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.live.val"/>
   <label>Place to Live</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.job.val"/>
   <label>Job</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.spiritAnimal.val"/>
   <label>Spirit Animal</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.adventure.val"/>
   <label>Adventure</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.love.val"/>
   <label>Who do you love?</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.movie.val"/>
   <label>Who will play you in a movie?</label>
     <br />
-  <input type="checkbox" />
-  <label>What is the title of your life's story?</label>
+  <input type="checkbox" ng-model="home.biography.val"/>
+  <label>What is the title of your biography?</label>
     <br />
-  <input type="checkbox" />
+  <input type="checkbox" ng-model="home.category.campaign.val"/>
   <label>What is your campaign slogan?</label>
     <br />
 </div>
-
+{{home.initialCategories}}
 <button class="btn" ng-click="home.enterInputs()">ENTER YOUR CHOICES!</button>
