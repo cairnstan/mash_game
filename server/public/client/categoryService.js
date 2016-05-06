@@ -11,42 +11,27 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     movie: {name: 'movie'},
     campaign: {name: 'campaign'}
   };
+  // var categories = [];
+  var getInputs = function(initialCategories){
+    console.log('Here is the getInputs from factory');
+    console.log('This is the array from controller:', initialCategories);
 
-  var enterInputs = function(){
-    var initialCategories = [];
-    initialCategories.push(category.pet);
-    initialCategories.push(category.job);
-    initialCategories.push(category.love);
-    initialCategories.push(category.biography);
-    initialCategories.push(category.superpower);
-    initialCategories.push(category.live);
-    initialCategories.push(category.ride);
-    initialCategories.push(category.adventure);
-    initialCategories.push(category.movie);
-    initialCategories.push(category.campaign);
-
-    console.log(initialCategories);
-    // console.log('initialCategories', home.initialCategories);
     var categories = initialCategories.filter(function(el){
-      console.log(el);
-      ///undefined
-      console.log(el.val);
-      console.log(el.name);
-      ///undefined
-      console.log(el.name.val);
-      if(el.name.val == true){
+
+      if(el.val){
         return true;
       }else {
         return false;
       }
+      return categories;
     })
-    console.log(categories);
+    console.log('These are the chosen categories', categories);
     console.log('Your categories have been selected!');
-    var sendCategories = function(){
-      $http.post('/categories', categories).then(function(){
-        console.log('categories have been posted', categories);
-      })
-    }
+    // var sendCategories = function(){
+    //   $http.post('/categories', categories).then(function(){
+    //     console.log('categories have been posted', categories);
+    //   })
+    // }
   }
 
 
@@ -54,8 +39,8 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
 
   return {
     category: category,
-    enterInputs: enterInputs,
-    // sendCategories: sendCategories
+    getInputs: getInputs,
+    // categories: categories
   }
 
 }])

@@ -4,14 +4,24 @@ app.controller('HomeController', function(CategoryService){
 
   home.rules = "M.A.S.H. is a future imagining game. First you will choose your categories. Then you will enter items for each category. A magic number will be chosen to cycle through all the items, crossing off the element whenever it gets to the magic number. This continues until there is only one item left in each category. These elements combined will be your story."
 
-  home.category = CategoryService.category;
+  // home.category = CategoryService.category;
 
-  home.enterInputs = CategoryService.enterInputs;
-
+  home.enterInputs = function(){
+    console.log('This is the superpower:', home.superpower);
+    console.log();
+    var initialCategories = [home.superpower];
+    // var initialCategories = [home.superpower, home.pet, home.love, home.job,
+    //   home.biography, home.live, home.ride, home.adventure, home.movie, home.campaign];
+    //   console.log('these are the initialCategories:', initialCategories);
+    //
+    // console.log('THis is the superpower value:', home.superpower.val);
+    // console.log('You are calling enterInputs');
+  //  CategoryService.getInputs(initialCategories);
+}
   // home.category = '';
   // home.categories = [];
   // //home.initialCategories = [home.pet, home.love, home.job];
-  // home.initialCategories = [];
+  //
   // home.pet = {name: 'pet'};
   // home.love = {name: 'love'};
   // home.job = {name: 'job'};
