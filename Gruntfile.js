@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['client/client.js'],
-        tasks: ['uglify', 'copy'],
+        tasks: ['uglify'],
         options: {
           spawn: false,
         },

@@ -1,40 +1,43 @@
 <div class="container">
-  <h2>How to Play:</h2>
-  <!-- dynamically populate rules through js {{}} -->
-  {{home.rules}}
+  <div class="well">
 
+    <h2>How to Play:</h2>
+    <!-- dynamically populate rules through js {{}} -->
+    {{home.rules}}
+  </div>
+
+  <div class="well">
+    <input type="checkbox" ng-model="home.superpower.val"/>
+    <label>Superpower</label>
+    <br />
+    <input type="checkbox" ng-model="home.pet.val"/>
+    <label>Pet</label>
+      <br />
+    <input type="checkbox" ng-model="home.live.val"/>
+    <label>Place to Live</label>
+      <br />
+    <input type="checkbox" ng-model="home.job.val"/>
+    <label>Job</label>
+      <br />
+    <input type="checkbox" ng-model="home.ride.val"/>
+    <label>What's your ride?</label>
+      <br />
+    <input type="checkbox" ng-model="home.adventure.val"/>
+    <label>Adventure</label>
+      <br />
+    <input type="checkbox" ng-model="home.love.val"/>
+    <label>Who do you love?</label>
+      <br />
+    <input type="checkbox" ng-model="home.movie.val"/>
+    <label>Who will play you in a movie?</label>
+      <br />
+    <input type="checkbox" ng-model="home.biography.val"/>
+    <label>What is the title of your biography?</label>
+      <br />
+    <input type="checkbox" ng-model="home.campaign.val"/>
+    <label>What is your campaign slogan?</label>
+      <br />
+  </div>
 </div>
-<div class="well">
-  <input type="checkbox" ng-model="home.superpower.val"/>
-  <label>Superpower</label>
-  <br />
-  <input type="checkbox" ng-model="home.pet.val"/>
-  <label>Pet</label>
-    <br />
-  <input type="checkbox" ng-model="home.live.val"/>
-  <label>Place to Live</label>
-    <br />
-  <input type="checkbox" ng-model="home.job.val"/>
-  <label>Job</label>
-    <br />
-  <input type="checkbox" ng-model="home.spiritAnimal.val"/>
-  <label>Spirit Animal</label>
-    <br />
-  <input type="checkbox" ng-model="home.adventure.val"/>
-  <label>Adventure</label>
-    <br />
-  <input type="checkbox" ng-model="home.love.val"/>
-  <label>Who do you love?</label>
-    <br />
-  <input type="checkbox" ng-model="home.movie.val"/>
-  <label>Who will play you in a movie?</label>
-    <br />
-  <input type="checkbox" ng-model="home.biography.val"/>
-  <label>What is the title of your biography?</label>
-    <br />
-  <input type="checkbox" ng-model="home.category.campaign.val"/>
-  <label>What is your campaign slogan?</label>
-    <br />
-</div>
-{{home.initialCategories}}
+
 <button class="btn" ng-click="home.enterInputs()">ENTER YOUR CHOICES!</button>

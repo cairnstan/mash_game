@@ -3,16 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>MASH GAME</title>
+
+    <!-- stylesheets -->
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/index.css">
+
+    <!-- libraries -->
     <script src="vendor/angular/angular.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
-    <script src="assets/scripts/client.min.js"></script>
+
+    <!-- angular source and configuration -->
+    <!-- <script src="assets/scripts/client.min.js"></script> -->
+    <script src="client/client.js"></script>
+
+    <!-- controllers -->
+    <script src="client/GameController.js"></script>
+    <script src="client/HomeController.js"></script>
+    <script src="client/InputController.js"></script>
+    <script src="client/PlayController.js"></script>
+    <script src="client/ResultsController.js"></script>
+
+    <!-- services -->
+    <script src="client/categoryService.js"></script>
+
+    <base href="/" />
   </head>
   <body class="container" ng-controller="GameController">
     <div class="jumbotron">
       <h1>M.A.S.H. GAME</h1>
-      <nav class="navbar navbar-default">
+      <!-- <nav class="navbar navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
           <li>
@@ -26,7 +45,7 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </nav> -->
 
     </div>
 
