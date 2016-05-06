@@ -10,68 +10,10 @@ app.controller('HomeController', function(CategoryService){
     bestArray= [];
     console.log('This is workingCategories.categories', home.workingCategories.categories);
     console.log('this is workingCategories', home.workingCategories);
-    for(var it in home.workingCategories.categories){
-      if(home.workingCategories.categories[it]){
-        bestArray.push(it);
-      }
 
-    }
-    console.log('This is the best array', bestArray);
-    // console.log('This is the superpower:', home.superpower);
+    CategoryService.getInputs(home.workingCategories.categories);
+    console.log('This is the array from the factory', CategoryService.bestArray);
 
-    // var initialCategories = [home.superpower];
-    // var initialCategories = [home.superpower, home.pet, home.love, home.job,
-    //   home.biography, home.live, home.ride, home.adventure, home.movie, home.campaign];
-    //   console.log('these are the initialCategories:', initialCategories);
-    //
-    // console.log('THis is the superpower value:', home.superpower.val);
-    // console.log('You are calling enterInputs');
-  //  CategoryService.getInputs(initialCategories);
 }
-  // home.category = '';
-  // home.categories = [];
-  // //home.initialCategories = [home.pet, home.love, home.job];
-  //
-  // home.pet = {name: 'pet'};
-  // home.love = {name: 'love'};
-  // home.job = {name: 'job'};
-  // home.biography = {name: 'biography'};
-  // home.superpower = {name: 'superpower'};
-  // home.live = {name: 'live'};
-  // home.ride = {name: 'ride'};
-  // home.adventure = {name: 'adventure'};
-  // home.movie = {name: 'movie'};
-  // home.campaign = {name: 'campaign'};
 
-
-
-
-  // home.enterInputs = function(){
-  //
-  // home.initialCategories.push(home.pet);
-  // home.initialCategories.push(home.job);
-  // home.initialCategories.push(home.love);
-  // home.initialCategories.push(home.biography);
-  // home.initialCategories.push(home.superpower);
-  // home.initialCategories.push(home.live);
-  // home.initialCategories.push(home.ride);
-  // home.initialCategories.push(home.adventure);
-  // home.initialCategories.push(home.movie);
-  // home.initialCategories.push(home.campaign);
-  //
-  // // console.log('initialCategories', home.initialCategories);
-  // home.categories = home.initialCategories.filter(function(category){
-  //   if(category.val == true){
-  //     return true;
-  //   }else {
-  //     return false;
-  //   }
-  // })
-  // // console.log(home.category);
-  //   console.log(home.categories);
-  //   console.log('Your categories have been selected!');
-  //   $http.post('/categories', home.categories).then(function(){
-  //     console.log('categories have been posted', home.categories);
-  //   })
-  // }
 });
