@@ -11,14 +11,19 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
       }
     }
   }
+ var gameArray =[];
 
-  var displayInputBoxes = function(){
-    //build function to put 4 text input boxes below elements in bestArray
+  var getUserEntry = function(entry){
+    //build function to capture user inputs
+    gameArray.push(entry);
+    $http.post('/')
   }
 
   return {
     getInputs: getInputs,
-    bestArray: bestArray
+    bestArray: bestArray,
+    getUserEntry: getUserEntry,
+    gameArray: gameArray
   }
 
 }])

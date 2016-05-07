@@ -1,25 +1,61 @@
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Architects+Daughter|Righteous|Chewy|Kaushan+Script|Gloria+Hallelujah|Fredoka+One|Permanent+Marker|Luckiest+Guy|Patrick+Hand|Cherry+Cream+Soda|Walter+Turncoat|Sansita+One|Lemon|Carter+One|Unkempt:400,700|Short+Stack|Henny+Penny|Titan+One|Rammetto+One|Delius+Unicase:400,700|Spicy+Rice|Original+Surfer);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Architects+Daughter|Righteous|Fredoka+One|Luckiest+Guy|Patrick+Hand|Cherry+Cream+Soda|Walter+Turncoat|Sansita+One|Carter+One|Unkempt:400,700|Short+Stack|Delius+Unicase:400,700|Original+Surfer);
 
 body{
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Luckiest Guy', cursive;
   background-image: url('../appImages/lg-dolphin-courtship.jpg');
+  /*font-weight: bold;*/
+  /*this will blow up one image to take the whole background. Need a better quality image for it to look good.*/
+  /*background-size: 100% 100%;*/
+}
+ .jumbotron {
+   background-color: #81C6B4;
+   padding: 10px;
+   text-align: center;
+   margin-top: 20px;
+ }
+ #checkbox {
+   display: block;
+ }
+ .well {
+   background-color: #D22463;
+   display: inline-block;
+   margin: 15px;
+ }
+div{
+  margin: 15px 40px 0px 40px;
+  border: 10px solid #4D39B2;
+  background-color: #FC8B11;
+}
+/*can't get this to space as I would like it to.*/
+.flex{
+  display: flex;
+  border: none;
+  padding: 20px;
+  flex-wrap: wrap;
+  border: none;
 }
 
+#inputBox{
+  margin: 10px auto 10px auto;
+}
+
+label{
+  margin: 5px;
+}
+input{
+  margin: 5px;
+}
+button {
+  margin: 15px;
+  background-color: #F9C911;
+}
 /*font-family: 'Indie Flower', cursive;
 
 font-family: 'Architects Daughter', cursive;
 
 font-family: 'Righteous', cursive;
 
-font-family: 'Chewy', cursive;
-
-font-family: 'Kaushan Script', cursive;
-
-font-family: 'Gloria Hallelujah', cursive;
-
 font-family: 'Fredoka One', cursive;
-
-font-family: 'Permanent Marker', cursive;
 
 font-family: 'Luckiest Guy', cursive;
 
@@ -31,22 +67,12 @@ font-family: 'Walter Turncoat', cursive;
 
 font-family: 'Sansita One', cursive;
 
-font-family: 'Lemon', cursive;
-
 font-family: 'Carter One', cursive;
 
 font-family: 'Unkempt', cursive;
 
 font-family: 'Short Stack', cursive;
 
-font-family: 'Henny Penny', cursive;
-
-font-family: 'Titan One', cursive;
-
-font-family: 'Rammetto One', cursive;
-
 font-family: 'Delius Unicase', cursive;
-
-font-family: 'Spicy Rice', cursive;
 
 font-family: 'Original Surfer', cursive;*/

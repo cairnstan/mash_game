@@ -1,15 +1,20 @@
 <div class="jumbotron">
   <h2>Enter your dreams below</h2>
 </div>
-<div class="well" ng-repeat="genre in input.genres">
-  {{genre}}
-  <br />
-  <input type="text" />
-  <br />
-  <input type="text" />
-  <br />
-  <input type="text" />
-  <br />
-  <input type="text" />
- 
-</div>
+  <div class="flex">
+    <div class="well" id="inputBox" ng-repeat="genre in input.genres">
+      {{genre}}
+      <br />
+      <input type="text" maxlength="100" ng-model="input.entry" ng-value="input.entry"/>
+      <br />
+      <input type="text" maxlength="100"/>
+      <br />
+      <input type="text" maxlength="100"/>
+      <br />
+      <input type="text" maxlength="100"/>
+      <br />
+      <button class="btn" ng-click="getRandom()">RANDOMIZE ME</button>
+    </div>
+
+  </div>
+  <button class="btn" ng-click="userInput()">LET'S GO!</button>
