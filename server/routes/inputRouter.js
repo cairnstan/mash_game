@@ -22,11 +22,17 @@ router.post('/', function(request, response){
       // var inputName4 = request.body + '400';
 
       //this works to put on separate lines. Need to think about how to have it tied to $index.
-      //Right now will only work with one category. 
-      var inputName1 = request.body['0a'];
-      var inputName2 = request.body['0b'];
-      var inputName3 = request.body['0c'];
-      var inputName4 = request.body['0d'];
+      //Right now will only work with one category. This is based on track by $index.
+      // var inputName1 = request.body['0a'];
+      // var inputName2 = request.body['0b'];
+      // var inputName3 = request.body['0c'];
+      // var inputName4 = request.body['0d'];
+
+      //this does not work because it is not pulling in genre. how can we do that?
+      var inputName1 = request.body['genre + a'];
+      var inputName2 = request.body['genre + b'];
+      var inputName3 = request.body['genre + c'];
+      var inputName4 = request.body['genre + d'];
 
       var results = [];
       //the entries into the database are all going into one row. This puts the
