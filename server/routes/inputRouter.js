@@ -15,7 +15,15 @@ router.post('/', function(request, response){
     }else {
       console.log('This is the call from the inputRouter');
       var inputName = request.body;
+      //this does not work
+      // var inputName1 = request.body + '100';
+      // var inputName2 = request.body + '200';
+      // var inputName3 = request.body + '300';
+      // var inputName4 = request.body + '400';
+
       var results = [];
+      //the entries into the database are all going into one row. This puts the
+      //same entries on 4 separate rows. 
       var query = client.query('INSERT INTO testTable(inputName)' +
        ' VALUES ($1), ($2), ($3), ($4) RETURNING id, inputName',
        [inputName, inputName, inputName, inputName]);
