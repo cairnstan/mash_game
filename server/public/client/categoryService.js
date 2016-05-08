@@ -16,7 +16,9 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   var getUserEntry = function(entry){
     //build function to capture user inputs
     gameArray.push(entry);
-    $http.post('/')
+    $http.post('/inputs', entry).then(function(response){
+      console.log('This is the response from /inputs:', response);
+    })
   }
 
   return {

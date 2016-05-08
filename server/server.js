@@ -7,7 +7,7 @@ var port = process.env.PORT || 3000;
 ////////////development modules//////////
 var connection = require('../db/connection');
 var index = require('./routes/index');
-var category = require('./routes/categoryRouter')
+var inputs = require('./routes/inputRouter')
 
 
 //////////// config /////////////
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 ///////////routes/////////////
 app.use('/', index);
-app.use('/category', category);
+app.use('/inputs', inputs);
 
 
 connection.initializeDB();

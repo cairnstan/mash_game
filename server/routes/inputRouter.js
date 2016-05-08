@@ -13,6 +13,12 @@ router.post('/', function(request, response){
       console.log(err);
       response.sendStatus(500);
     }else {
+      console.log('This is the call from the inputRouter');
+      var inputName = request.body;
+      var results = [];
+      var query = client.query('INSERT INTO testTable(inputName)' +
+       ' VALUES ($1) RETURNING id, inputName',
+       [inputName]);
       //need to have elements here that will be posted.
       // console.log('The items are here');
       // var toDoItem = request.body.toDoItem;
@@ -25,7 +31,7 @@ router.post('/', function(request, response){
       // [toDoItem, completed]);
 
       query.on('error', function(error){
-        console.log(error);
+        console.log('This is the error response', error);
         response.sendStatus(500);
       });
 

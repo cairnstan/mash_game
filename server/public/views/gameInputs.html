@@ -2,17 +2,17 @@
   <h2>Enter your dreams below</h2>
 </div>
   <div class="flex">
-    <div class="well" id="inputBox" ng-repeat="genre in input.genres">
+    <div class="well" id="inputBox" ng-repeat="genre in input.genres track by $index">
       {{genre}}
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 100]" />
       <!-- <input type="checkbox" ng-model="newObject[item.name]"> -->
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 200]" />
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 300]" />
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 400]" />
       <br />
       <button class="btn" ng-click="getRandom()">RANDOMIZE ME</button>
     </div>
