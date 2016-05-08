@@ -17,10 +17,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     controller: 'PlayController',
     controllerAs: 'play'
   })
-  .when('/results', {
-    templateUrl: 'views/results',
-    controller: 'ResultsController',
-    controllerAs: 'results'
+  .when('/story', {
+    templateUrl: 'views/story.html',
+    controller: 'StoryController',
+    controllerAs: 'story'
   })
 
   $locationProvider.html5Mode(true);

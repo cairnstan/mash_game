@@ -5,16 +5,17 @@
     <div class="well" id="inputBox" ng-repeat="genre in input.genres">
       {{genre}}
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry" ng-value="input.entry"/>
+      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
+      <!-- <input type="checkbox" ng-model="newObject[item.name]"> -->
       <br />
-      <input type="text" maxlength="100"/>
+      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
       <br />
-      <input type="text" maxlength="100"/>
+      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
       <br />
-      <input type="text" maxlength="100"/>
+      <input type="text" maxlength="100" ng-model="input.entry[genre]" ng-value="input.entry"/>
       <br />
       <button class="btn" ng-click="getRandom()">RANDOMIZE ME</button>
     </div>
 
   </div>
-  <button class="btn" ng-click="userInput()">LET'S GO!</button>
+  <button class="btn" ng-click="input.userInput()">LET'S GO!</button>
