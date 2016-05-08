@@ -17,8 +17,8 @@ router.post('/', function(request, response){
       var inputName = request.body;
       var results = [];
       var query = client.query('INSERT INTO testTable(inputName)' +
-       ' VALUES ($1) RETURNING id, inputName',
-       [inputName]);
+       ' VALUES ($1), ($2), ($3), ($4) RETURNING id, inputName',
+       [inputName, inputName, inputName, inputName]);
       //need to have elements here that will be posted.
       // console.log('The items are here');
       // var toDoItem = request.body.toDoItem;
