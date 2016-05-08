@@ -21,22 +21,20 @@ router.post('/', function(request, response){
       // var inputName3 = request.body + '300';
       // var inputName4 = request.body + '400';
 
+      //this works to put on separate lines. Need to think about how to have it tied to $index.
+      //Right now will only work with one category. 
+      var inputName1 = request.body['0a'];
+      var inputName2 = request.body['0b'];
+      var inputName3 = request.body['0c'];
+      var inputName4 = request.body['0d'];
+
       var results = [];
       //the entries into the database are all going into one row. This puts the
-      //same entries on 4 separate rows. 
+      //same entries on 4 separate rows.
       var query = client.query('INSERT INTO testTable(inputName)' +
        ' VALUES ($1), ($2), ($3), ($4) RETURNING id, inputName',
-       [inputName, inputName, inputName, inputName]);
-      //need to have elements here that will be posted.
-      // console.log('The items are here');
-      // var toDoItem = request.body.toDoItem;
-      // var completed = request.body.completed;
-      // var results = [];
+       [inputName1, inputName2, inputName3, inputName4]);
 
-      // need query that will respond to which table is being inputed to.
-      // var query = client.query('INSERT INTO toDo(toDoItem, completed)' +
-      // ' VALUES ($1, $2) RETURNING id, toDoItem, completed',
-      // [toDoItem, completed]);
 
       query.on('error', function(error){
         console.log('This is the error response', error);

@@ -5,14 +5,14 @@
     <div class="well" id="inputBox" ng-repeat="genre in input.genres track by $index">
       {{genre}}
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[$index + 100]" />
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 'a']" />
       <!-- <input type="checkbox" ng-model="newObject[item.name]"> -->
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[$index + 200]" />
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 'b']" />
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[$index + 300]" />
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 'c']" />
       <br />
-      <input type="text" maxlength="100" ng-model="input.entry[$index + 400]" />
+      <input type="text" maxlength="100" ng-model="input.entry[$index + 'd']" />
       <br />
       <button class="btn" ng-click="getRandom()">RANDOMIZE ME</button>
     </div>
