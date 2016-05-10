@@ -17,6 +17,8 @@ router.post('/', function(request, response){
       console.log('This is the call from the inputRouter');
       var inputName = request.body;
       console.log('this is the request.body', inputName);
+      console.log('this is request.body[0].value', request.body[0].value);
+      
       //maybe make a switch to identify category?
 
       // console.log('This is genre from router', genre);

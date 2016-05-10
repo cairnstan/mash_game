@@ -13,7 +13,7 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   }
  var gameArray = [];
  var finalObject = {};
-  var getUserEntry = function(entry){
+  var sendUserEntry = function(entry){
     //build function to capture user inputs
 
     // console.log('this is the entry', entry);
@@ -33,9 +33,50 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     // pet: Array[4]0: "nv"1: "vrn"2: "ver"3: "vrv"}
 
     // gameArray.push(entry);
-    $http.post('/inputs', finalObject).then(function(response){
+    $http.post('/inputs', bestArray).then(function(response){
       console.log('This is the response from /inputs:', response);
     })
+  }
+  var findCategory = function(){
+    var cat_id = 0;
+    for(var j = 0; j < bestArray.length; j++){
+      var cat = bestArray[j].value;
+      switch(cat){
+        case "superpower":
+        cat_id = 1;
+        break;
+        case "pet":
+        cat_id = 2;
+        break;
+        case "live":
+        cat_id = 3;
+        break;
+        case "love":
+        cat_id = 4;
+        break;
+        case "ride":
+        cat_id = 5;
+        break;
+        case "job":
+        cat_id = 6;
+        break;
+        case "adventure":
+        cat_id = 7;
+        break;
+        case "movie":
+        cat_id = 8;
+        break;
+        case "biography":
+        cat_id = 9;
+        break;
+        case "campaign":
+        cat_id = 10;
+        break;
+        return cat_id;
+      }
+      bestArray.push({category_id: cat_id})
+    }
+    console.log('this is updated bestArray', bestArray);
   }
 
 //to get random entries from postgreSQL
@@ -48,10 +89,11 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   return {
     getInputs: getInputs,
     bestArray: bestArray,
-    getUserEntry: getUserEntry,
+    sendUserEntry: sendUserEntry,
     gameArray: gameArray,
     getRandomInputs: getRandomInputs,
-    finalObject: finalObject
+    finalObject: finalObject,
+    findCategory: findCategory
   }
 
 }])
