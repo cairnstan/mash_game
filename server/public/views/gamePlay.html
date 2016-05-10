@@ -1,2 +1,17 @@
 <h1>LET'S PLAY!!!!!</h1>
+<!-- this just shows the inputs -->
+<div class="well" ng-repeat="game in play.games">
+  {{game[0]}}
+  <br />
+  {{game[1]}}
+  <br />
+  {{game[2]}}
+  <br />
+  {{game[3]}}
+  <br />
+</div>
+<!-- this shows all the information as JSON object -->
+<div class="well" ng-repeat="category in play.categories">
+  {{category}}
+</div>
 <button class="btn" ng-click="play.getResults()">TELL MY STORY!</button>

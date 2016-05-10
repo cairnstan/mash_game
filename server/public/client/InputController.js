@@ -12,7 +12,7 @@ angular.module('mashApp').controller('InputController', function(CategoryService
     CategoryService.getUserEntry(input.genres);
     //the code below works to move onto the next page view. Leave it commented
     //out while trying to make the rest of the functionality work.
-    // $location.path('/gamePlay');
+    $location.path('/gamePlay');
   }
 
   input.getRandom = function(){

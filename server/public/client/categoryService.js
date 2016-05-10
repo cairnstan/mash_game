@@ -12,10 +12,10 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     }
   }
  var gameArray = [];
-
+ var finalObject = {};
   var getUserEntry = function(entry){
     //build function to capture user inputs
-    var finalObject = {};
+
     // console.log('this is the entry', entry);
     // console.log('This is the entry[0].value', entry[0].value);
     for(var i = 0; i < entry.length; i++){
@@ -50,7 +50,8 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     bestArray: bestArray,
     getUserEntry: getUserEntry,
     gameArray: gameArray,
-    getRandomInputs: getRandomInputs
+    getRandomInputs: getRandomInputs,
+    finalObject: finalObject
   }
 
 }])
