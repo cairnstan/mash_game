@@ -69,15 +69,18 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
 }
     console.log('this is updated bestArray', bestArray);
   }
-
+  var randomResponse = {};
 //to get random entries from postgreSQL
+//when I try to access the response in the controller, it returns an empty object.
   var getRandomInputs = function(){
     $http.get('/inputs').then(function(response){
       console.log('These are the random inputs', response);
-      
-      //This is the response back from this: Object {data: "<!DOCTYPE html>↵<html ng-app="mashApp">↵  <head>↵ …    <div ng-view>↵↵    </div>↵↵  </body>↵</html>↵", status: 200, config: Object, statusText: "OK"}
+      randomResponse = response.data;
+      return randomResponse;
     })
   }
+
+
   return {
     getInputs: getInputs,
     bestArray: bestArray,
@@ -85,7 +88,8 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     gameArray: gameArray,
     getRandomInputs: getRandomInputs,
     finalObject: finalObject,
-    findCategory: findCategory
+    findCategory: findCategory,
+    randomResponse: randomResponse
   }
 
 }])
