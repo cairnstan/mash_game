@@ -10,69 +10,52 @@ router.post('/', function(request, response){
   // console.log(request.body);
 
   pg.connect(connectionString, function(err, client, done){
+
+    // var query;
+
     if(err) {
       console.log(err);
       response.sendStatus(500);
     }else {
       console.log('This is the call from the inputRouter');
+      var results =[];
       var inputName = request.body;
-      console.log('this is the request.body', inputName);
-      console.log('this is request.body[0].value', request.body[0].value);
-      
-      //maybe make a switch to identify category?
+    inputName.forEach(function(k){
+        var inputName1 = k.optionOne;
+        var inputName2 = k.optionTwo;
+        var inputName3 = k.optionThree;
+        var inputName4 = k.optionFour;
+        var cat_id = k.category_id;
+        // console.log('inputName1:', inputName1);
+        // console.log('inputName2:', inputName2);
+        // console.log('inputName3:', inputName3);
+        // console.log('inputName4:', inputName4);
+        // console.log('cat_id:', cat_id);
 
-      // console.log('This is genre from router', genre);
-      //this does not work
-      // var inputName1 = request.body + '100';
-      // var inputName2 = request.body + '200';
-      // var inputName3 = request.body + '300';
-      // var inputName4 = request.body + '400';
+      var query = client.query('INSERT INTO mash_data(input, category_id)' +
+       ' VALUES ($1, $2), ($3, $2), ($4, $2), ($5, $2) RETURNING id, input, category_id', [inputName1, cat_id, inputName2, inputName3, inputName4]);
 
-      //this works to put on separate lines. Need to think about how to have it tied to $index.
-      //Right now will only work with one category. This is based on track by $index.
-      // var inputName1 = request.body['0a'];
-      // var inputName2 = request.body['0b'];
-      // var inputName3 = request.body['0c'];
-      // var inputName4 = request.body['0d'];
+      query.on('error', function(error){
+        console.log('This is the error response', error);
+        response.sendStatus(500);
+      });
 
-      //this does not work because it is not pulling in genre. how can we do that?
-      // var inputName1 = request.body['genre + a'];
-      // var inputName2 = request.body['genre + b'];
-      // var inputName3 = request.body['genre + c'];
-      // var inputName4 = request.body['genre + d'];
+      query.on('row', function(rowData){
+        results.push(rowData);
+      });
 
-      // var inputName1 = request.body[genre + 'a'];
-      // var inputName2 = request.body[genre + 'b'];
-      // var inputName3 = request.body[genre + 'c'];
-      // var inputName4 = request.body[genre + 'd'];
-      // var results = [];
-      //the entries into the database are all going into one row. This puts the
-      //same entries on 4 separate rows.
-      //Want to keep this commented out until I figure out the format.
-//       var query = client.query('INSERT INTO testTable(inputName)' +
-//        ' VALUES ($1), ($2), ($3), ($4) RETURNING id, inputName',
-//        [inputName, inputName, inputName, inputName]);
-//
-//
-//       query.on('error', function(error){
-//         console.log('This is the error response', error);
-//         response.sendStatus(500);
-//       });
-//
-//       query.on('row', function(rowData){
-//         results.push(rowData);
-//       });
-//
-//       query.on('end', function(){
-//         response.send(results);
-//         done();
-//       });
+      query.on('end', function(){
+        done();
+      });
+    }); //function end
+      response.send(results);
+
     }
   });
 });
 
 router.get('/', function(request, response){
-  console.log('this is the response from the router for the get');
+  console.log('this is the response from .get router');
   pg.connect(connectionString, function(err, client, done){
     if(err) {
       console.log(err);
@@ -80,9 +63,17 @@ router.get('/', function(request, response){
     } else{
       // this should be the place to select the random elements?
       //postgreSQL query to pull random elements
-      var query = client.query('SELECT * from testTable ORDER BY random() LIMIT 4');
+      //request.body is an empty object at the moment. How do I get bestArray here?
+      //Or do i even need that to be able to pull elements?
+      // var inputName = request.body;
+      // console.log('this is inputname', inputName);
+      // inputName.forEach(function(k){
+      //   var cat_id = k.category_id;
+      console.log('router.get query hit');
+      var query = client.query('SELECT * from mash_data ORDER BY random() LIMIT 4');
+      //WHERE category_id = cat_id
+        var results = [];
 
-      var results = [];
 
       query.on('error', function(error){
         console.log(error);
@@ -97,6 +88,8 @@ router.get('/', function(request, response){
         response.send(results);
         done();
       });
+    // }); //function end
+
     }
   });
 });

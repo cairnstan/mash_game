@@ -18,8 +18,10 @@ function initializeDB(){
       ////need to add in multiple tables- what is the syntax for this?
       var query = client.query('CREATE TABLE IF NOT EXISTS testTable (' +
       'id SERIAL PRIMARY KEY,' +
-      'inputName varchar(80) NOT NULL);'
+      'inputName varchar(80) NOT NULL,' +
+      'cat int);'
     );
+
     query.on('end', function(){
       console.log('Successfully ensured schema exists');
       done();

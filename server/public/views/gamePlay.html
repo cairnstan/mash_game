@@ -1,4 +1,6 @@
 <h1>LET'S PLAY!!!!!</h1>
+<button class="btn" ng-click="startGame()">START THE GAME</button>
+<br />
 <!-- this just shows the inputs -->
 <!-- <div class="well" ng-repeat="game in play.games">
   {{game[0]}}
@@ -11,17 +13,21 @@
   <br />
 </div> -->
 <!-- this shows all the information as JSON object -->
-<div class="well" ng-repeat="category in play.categories">
-  <h3>{{category.value}}</h3>
-  <br />
-  {{category.optionOne}}
-    <br />
-  {{category.optionTwo}}
-    <br />
-  {{category.optionThree}}
-    <br />
-  {{category.optionFour}}
-    <br />
-
+<div class="flex">
+  <div class="displayCategories" ng-repeat="category in play.categories">
+    <div class="well">
+      <h3 class="catName">{{category.value}}</h3>
+      <br />
+      {{category.optionOne}}
+        <br />
+      {{category.optionTwo}}
+        <br />
+      {{category.optionThree}}
+        <br />
+      {{category.optionFour}}
+        <br />
+    </div>
+  </div>
 </div>
-<button class="btn" ng-click="play.getResults()">TELL MY STORY!</button>
+<br />
+<button class="btn" id="results" ng-click="play.getResults()">TELL MY STORY!</button>
