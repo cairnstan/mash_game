@@ -11,13 +11,15 @@ angular.module('mashApp').controller('InputController', function(CategoryService
     console.log('user input button pushed');
     CategoryService.sendUserEntry(input.genres);
     CategoryService.findCategory();
+    // CategoryService.pushMash();
     $location.path('/gamePlay');
   }
 
-  input.getRandom = function(){
+  input.getRandom = function(genre){
   console.log('random button pushed');
   CategoryService.findCategory();
-  CategoryService.getRandomInputs();
+  CategoryService.getRandomInputs(genre);
+
   console.log('this is the CategoryService.randomResponse', CategoryService.randomResponse);
   // input.genre.optionOne = CategoryService.randomResponse.data[0];
   // input.genre.optionTwo = CategoryService.randomResponse.data[1];

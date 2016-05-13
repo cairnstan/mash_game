@@ -12,14 +12,19 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     }
   }
  var gameArray = [];
- var finalObject = {};
+
   var sendUserEntry = function(entry){
     //function to capture user inputs
     for(var i = 0; i < entry.length; i++){
+        entry[i].optionOne.toLowerCase();
+        entry[i].optionTwo.toLowerCase();
+        entry[i].optionThree.toLowerCase();
+        entry[i].optionFour.toLowerCase();
         var keyValue = entry[i].value;
-        var tempArray = [entry[i].optionOne, entry[i].optionTwo, entry[i].optionThree, entry[i].optionFour];
-        finalObject[keyValue] = tempArray;
-        console.log('this is the finalObject', finalObject);
+        var loopArray = [{value: entry[i].optionOne, selected: false}, {value: entry[i].optionTwo, selected: false}, {value: entry[i].optionThree, selected: false}, {value: entry[i].optionFour, selected: false}];
+        gameArray.push({mainValue: keyValue, elements: loopArray});
+        console.log('this is the gameArray', gameArray);
+
     }
 
     $http.post('/inputs', bestArray).then(function(response){
@@ -69,17 +74,37 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
 }
     console.log('this is updated bestArray', bestArray);
   }
-  var randomResponse = {};
+  var randomResponse = [];
 //to get random entries from postgreSQL
 //when I try to access the response in the controller, it returns an empty object.
-  var getRandomInputs = function(){
-    $http.get('/inputs').then(function(response){
+  var getRandomInputs = function(genre){
+    console.log('bestArray=', bestArray);
+
+    // console.log('ids', ids);
+    $http.get('/inputs', {params: {categoryId: genre.category_id}}).then(function(response){
       console.log('These are the random inputs', response);
       randomResponse = response.data;
+      console.log('this is response.data', randomResponse);
       return randomResponse;
     })
+    console.log('randomResponse out of post', randomResponse);
   }
-
+  //change this to be pushed into the final object
+  // var pushMash = function(){
+  //   bestArray.unshift({value: 'MASH', optionOne: 'M: mansion', optionTwo: 'A: apartment', optionThree: 'S: shack', optionFour: 'H: house'});
+  // }
+  var playLoop = function(array){
+    var num = 5;
+    var counter = 1;
+    for(var x = 0; x < array.length; x++) {
+      for(var y = 0; array[x].array.length; y++){
+        if(counter%num == 0){
+          console.log(array[x].array[y]);
+        }
+      counter++;
+    }
+  }
+    }
 
   return {
     getInputs: getInputs,
@@ -87,9 +112,11 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     sendUserEntry: sendUserEntry,
     gameArray: gameArray,
     getRandomInputs: getRandomInputs,
-    finalObject: finalObject,
+    // finalObject: finalObject,
     findCategory: findCategory,
-    randomResponse: randomResponse
+    randomResponse: randomResponse,
+    // pushMash: pushMash,
+    playLoop: playLoop
   }
 
 }])

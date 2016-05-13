@@ -7,6 +7,7 @@ angular.module('mashApp').controller('HomeController', function(CategoryService,
   home.enterInputs = function(){
     CategoryService.getInputs(home.workingCategories.categories);
     console.log('This is the array from the factory', CategoryService.bestArray);
+    CategoryService.findCategory();
     $location.path('/gameInputs');
 
   }

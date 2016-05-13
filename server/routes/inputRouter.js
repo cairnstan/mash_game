@@ -33,7 +33,8 @@ router.post('/', function(request, response){
         // console.log('cat_id:', cat_id);
 
       var query = client.query('INSERT INTO mash_data(input, category_id)' +
-       ' VALUES ($1, $2), ($3, $2), ($4, $2), ($5, $2) RETURNING id, input, category_id', [inputName1, cat_id, inputName2, inputName3, inputName4]);
+       ' VALUES ($1, $2), ($3, $2), ($4, $2), ($5, $2) ON CONFLICT DO NOTHING RETURNING id, input, category_id', [inputName1, cat_id, inputName2, inputName3, inputName4]);
+
 
       query.on('error', function(error){
         console.log('This is the error response', error);
@@ -56,6 +57,7 @@ router.post('/', function(request, response){
 
 router.get('/', function(request, response){
   console.log('this is the response from .get router');
+  console.log(request.query);
   pg.connect(connectionString, function(err, client, done){
     if(err) {
       console.log(err);
@@ -70,7 +72,7 @@ router.get('/', function(request, response){
       // inputName.forEach(function(k){
       //   var cat_id = k.category_id;
       console.log('router.get query hit');
-      var query = client.query('SELECT * from mash_data ORDER BY random() LIMIT 4');
+      var query = client.query('SELECT * from mash_data WHERE category_id = $1 ORDER BY random() LIMIT 4',[request.query.categoryId]);
       //WHERE category_id = cat_id
         var results = [];
 

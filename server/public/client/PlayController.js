@@ -10,7 +10,9 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
   }
   play.getResults = function(){
     console.log('play button pushed');
-    $location.path('/story');
+    CategoryService.playLoop(CategoryService.gameArray);
+    //code below works to navigate to next page view
+    // $location.path('/story');
   }
 
 
