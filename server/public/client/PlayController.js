@@ -7,7 +7,9 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
 
   play.startGame = function(){
     console.log('startGame button pushed');
-    CategoryService.playLoop(CategoryService.gameArray);
+    // CategoryService.checkSubArrays(CategoryService.gameArray);
+    // console.log(CategoryService.gameArray);
+    // CategoryService.continueLoop(CategoryService.gameArray);
     //will run the logic of moving through the game play.
   }
   play.getResults = function(){
