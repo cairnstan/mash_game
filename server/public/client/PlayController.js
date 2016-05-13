@@ -11,6 +11,8 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
     // console.log(CategoryService.gameArray);
     // CategoryService.continueLoop(CategoryService.gameArray);
     //will run the logic of moving through the game play.
+    CategoryService.randomResults(CategoryService.gameArray);
+    console.log('This is the updated gameArray', CategoryService.gameArray);
   }
   play.getResults = function(){
     console.log('play button pushed');
