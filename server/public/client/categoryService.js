@@ -94,12 +94,15 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   //   bestArray.unshift({value: 'MASH', optionOne: 'M: mansion', optionTwo: 'A: apartment', optionThree: 'S: shack', optionFour: 'H: house'});
   // }
   var playLoop = function(array){
+    console.log('playLoop function called from factory');
     var num = 5;
     var counter = 1;
     for(var x = 0; x < array.length; x++) {
-      for(var y = 0; array[x].array.length; y++){
+      for(var y = 0; y < array[x].elements.length; y++){
         if(counter%num == 0){
-          console.log(array[x].array[y]);
+          console.log(array[x].elements[y]);
+          array[x].elements[y].selected = true;
+          console.log(array[x].elements[y]);
         }
       counter++;
     }

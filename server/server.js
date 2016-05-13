@@ -20,7 +20,7 @@ app.use('/', index);
 app.use('/inputs', inputs);
 
 
-connection.initializeDB();
+// connection.initializeDB();
 //listen
 app.listen(port, function() {
   console.log('listening on port', port);

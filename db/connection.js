@@ -16,6 +16,7 @@ function initializeDB(){
       process.exit(1);
     }else {
       ////need to add in multiple tables- what is the syntax for this?
+      //need to change this for mash_data and categories tables
       var query = client.query('CREATE TABLE IF NOT EXISTS testTable (' +
       'id SERIAL PRIMARY KEY,' +
       'inputName varchar(80) NOT NULL,' +
