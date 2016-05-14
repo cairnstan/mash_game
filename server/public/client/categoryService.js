@@ -92,8 +92,8 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   }
 
   var pushMash = function(){
-    gameArray.unshift({mainValue: 'MASH', elements: [{value: 'M: mansion', selected: false}, {value: 'A: apartment', selected: false}, {value: 'S: shack', selected: false}, {value: 'H: house', selected: false}]});
-    bestArray.unshift({value: 'MASH', optionOne: 'M: mansion', optionTwo: 'A: apartment', optionThree: 'S: shack',  optionFour: 'H: house'});
+    gameArray.unshift({mainValue: 'MASH', elements: [{value: 'Mansion', selected: false}, {value: 'Apartment', selected: false}, {value: 'Shack', selected: false}, {value: 'House', selected: false}]});
+    bestArray.unshift({value: 'MASH', optionOne: 'Mansion', optionTwo: 'Apartment', optionThree: 'Shack',  optionFour: 'House'});
   }
 
   var shuffleArray = function(array) {
@@ -126,19 +126,64 @@ var randomResults = function(list){
     randomArray.push({value: list[i].mainValue, choice: list[i].elements[0].value});
   }
 }
+var storyTime = function(){
+  var sentence = '';
+  // var category_id = '';
+  for(var j = 0; j < randomArray.length; j++){
+    var val = randomArray[j].value;
+    switch(val){
+      case "MASH":
+      sentence = 'You will live in a(n) ' + randomArray[j].choice + '.';
+      break;
+      case "superpower":
+      sentence = 'You will save or destroy the world with your powers of ' + randomArray[j].choice + '.';
+      break;
+      case "pet":
+      sentence = 'You will live with your pet ' + randomArray[j].choice + '.';
+      break;
+      case "live":
+      sentence = 'The place you will call home will be ' + randomArray[j].choice + '.';
+      break;
+      case "love":
+      sentence = 'Your relationship with ' + randomArray[j].choice + ' will be just as you imagine.';
+      break;
+      case "ride":
+      sentence = 'You will get about the world in your ' + randomArray[j].choice + '.';
+      break;
+      case "job":
+      sentence = 'Working as a ' + randomArray[j].choice + ' will fulfill you.';
+      break;
+      case "adventure":
+      sentence = 'Sometime when you least expect it, you will ' + randomArray[j].choice + '.';
+      break;
+      case "movie":
+      sentence = 'Everyone will want to see the movie of your life where ' + randomArray[j].choice + ' captures your essence perfectly.';
+      break;
+      case "biography":
+      sentence = 'The story of your life: ' + randomArray[j].choice + ', will capture the hearts of millions.';
+      break;
+      case "campaign":
+      sentence = 'You will celebrate your presidential victory from a successful campaign built on the slogan of: ' + randomArray[j].choice + '!';
+      break;
+      return sentence;
+    }
+    randomArray[j]['sentence'] = sentence;
+}
+  console.log('this is updated randomArray', randomArray);
+}
+
   return {
     getInputs: getInputs,
     bestArray: bestArray,
     sendUserEntry: sendUserEntry,
     gameArray: gameArray,
     getRandomInputs: getRandomInputs,
-    // finalObject: finalObject,
     findCategory: findCategory,
     randomResponse: randomResponse,
     pushMash: pushMash,
     randomResults: randomResults,
-    randomArray: randomArray
-
+    randomArray: randomArray,
+    storyTime: storyTime
   }
 
 }])

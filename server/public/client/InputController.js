@@ -10,14 +10,12 @@ angular.module('mashApp').controller('InputController', function(CategoryService
   input.userInput = function(){
     console.log('user input button pushed');
     CategoryService.sendUserEntry(input.genres);
-    // CategoryService.findCategory();
     CategoryService.pushMash();
     $location.path('/gamePlay');
   }
 
   input.getRandom = function(genre){
   console.log('random button pushed');
-  // CategoryService.findCategory();
   CategoryService.getRandomInputs(genre, function(randomResponse){
 
   console.log('this is the CategoryService.randomResponse', randomResponse);
@@ -26,9 +24,8 @@ angular.module('mashApp').controller('InputController', function(CategoryService
   genre.optionThree = randomResponse[2].input;
   genre.optionFour = randomResponse[3].input;
 
-  console.log(input.genres, 'its friday');
 });
   }
-//need to figure out how to make random inputs display in the input boxes
+
 
 })

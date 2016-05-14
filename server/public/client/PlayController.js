@@ -10,6 +10,7 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
     CategoryService.randomResults(CategoryService.gameArray);
     console.log('This is the updated gameArray', CategoryService.gameArray);
     console.log('This is the randomArray', CategoryService.randomArray);
+    CategoryService.storyTime();
     $location.path('/story');
   }
 })

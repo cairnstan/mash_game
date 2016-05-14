@@ -2,11 +2,17 @@
 <div class="flex">
   <div class="displayCategories" ng-repeat="selection in story.selections">
     <div class="well">
-      <h3 class="catName">{{selection.value}}</h3>
+      <h2 class="catName">{{selection.value}}</h3>
       <br />
       {{selection.choice}}
-        <br />
+      <br />
+      <h3 class="story">
+        {{selection.sentence}}
+          <br />
+      </div>
+
     </div>
+
   </div>
 </div>
 <br />
