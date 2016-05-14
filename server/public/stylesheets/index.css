@@ -1,11 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Architects+Daughter|Righteous|Fredoka+One|Luckiest+Guy|Patrick+Hand|Cherry+Cream+Soda|Walter+Turncoat|Sansita+One|Carter+One|Unkempt:400,700|Short+Stack|Delius+Unicase:400,700|Original+Surfer);
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
 
 body{
   font-family: 'Luckiest Guy', cursive;
   background-image: url('../appImages/lg-dolphin-courtship.jpg');
-  /*font-weight: bold;*/
-  /*this will blow up one image to take the whole background. Need a better quality image for it to look good.*/
-  /*background-size: 100% 100%;*/
+  font-weight: bold;
 }
  .jumbotron {
    background-color: #81C6B4;
@@ -38,7 +36,7 @@ div{
   border: none;
   text-align: center;
 }
-/*can't get this to space as I would like it to.*/
+
 .flex{
   display: flex;
   border: none;
@@ -72,37 +70,3 @@ button {
   text-decoration: underline;
   text-shadow: 0 0 8px black;
 }
-/*button:hover{
-  background-image: url('../appImages/lg-dolphin-courtship.jpg');
-  font-size: 20px;
-  text-decoration: underline;
-  color: white;
-  text-shadow: 0 0 6px black;
-}*/
-/*font-family: 'Indie Flower', cursive;
-
-font-family: 'Architects Daughter', cursive;
-
-font-family: 'Righteous', cursive;
-
-font-family: 'Fredoka One', cursive;
-
-font-family: 'Luckiest Guy', cursive;
-
-font-family: 'Patrick Hand', cursive;
-
-font-family: 'Cherry Cream Soda', cursive;
-
-font-family: 'Walter Turncoat', cursive;
-
-font-family: 'Sansita One', cursive;
-
-font-family: 'Carter One', cursive;
-
-font-family: 'Unkempt', cursive;
-
-font-family: 'Short Stack', cursive;
-
-font-family: 'Delius Unicase', cursive;
-
-font-family: 'Original Surfer', cursive;*/

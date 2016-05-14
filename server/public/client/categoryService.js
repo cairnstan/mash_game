@@ -14,7 +14,7 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
  var gameArray = [];
 
   var sendUserEntry = function(entry){
-    //function to capture user inputs
+    //captures user inputs
     for(var i = 0; i < entry.length; i++){
         entry[i].optionOne.toLowerCase();
         entry[i].optionTwo.toLowerCase();
@@ -26,10 +26,11 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
         console.log('this is the gameArray', gameArray);
 
     }
-    //THIS WORKS JUST COMMENTING IT OUT FOR THE MOMENT
-    // $http.post('/inputs', bestArray).then(function(response){
-      // console.log('This is the response from /inputs:', response);
-    // })
+
+    //sends user input to DB
+    $http.post('/inputs', bestArray).then(function(response){
+      console.log('This is the response from /inputs:', response);
+    })
   }
   var findCategory = function(){
     var cat_id = 0;
@@ -75,22 +76,21 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
     console.log('this is updated bestArray', bestArray);
   }
   var randomResponse = [];
-//to get random entries from postgreSQL
-//when I try to access the response in the controller, it returns an empty object.
+
   var getRandomInputs = function(genre, callback){
     console.log('bestArray=', bestArray);
 
-    // console.log('ids', ids);
+
     $http.get('/inputs', {params: {categoryId: genre.category_id}}).then(function(response){
       console.log('These are the random inputs', response);
       randomResponse = response.data;
       callback(randomResponse);
       console.log('this is response.data', randomResponse);
-      // return randomResponse;
+
     })
     console.log('randomResponse out of post', randomResponse);
   }
-  //change this to be pushed into the final object
+
   var pushMash = function(){
     gameArray.unshift({mainValue: 'MASH', elements: [{value: 'M: mansion', selected: false}, {value: 'A: apartment', selected: false}, {value: 'S: shack', selected: false}, {value: 'H: house', selected: false}]});
     bestArray.unshift({value: 'MASH', optionOne: 'M: mansion', optionTwo: 'A: apartment', optionThree: 'S: shack',  optionFour: 'H: house'});

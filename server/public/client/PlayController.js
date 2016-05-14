@@ -7,21 +7,9 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
 
   play.startGame = function(){
     console.log('startGame button pushed');
-    // CategoryService.checkSubArrays(CategoryService.gameArray);
-    // console.log(CategoryService.gameArray);
-    // CategoryService.continueLoop(CategoryService.gameArray);
-    //will run the logic of moving through the game play.
     CategoryService.randomResults(CategoryService.gameArray);
     console.log('This is the updated gameArray', CategoryService.gameArray);
     console.log('This is the randomArray', CategoryService.randomArray);
     $location.path('/story');
   }
-  play.getResults = function(){
-    console.log('play button pushed');
-
-    //code below works to navigate to next page view
-
-  }
-
-
 })

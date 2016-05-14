@@ -7,13 +7,6 @@ router.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, '../public/views/index.html'));
 });
 
-
-
-
-// router.get('/inputs', function(request, response){
-//   response.sendFile(path.join(__dirname, '../public/views/index.html'));
-// })
-
 router.use('/inputs', inputs);
 
 module.exports = router;
