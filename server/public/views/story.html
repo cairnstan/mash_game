@@ -1,1 +1,12 @@
 <h1>YOUR FUTURE AWAITS!!!!!</h1>
+<div class="flex">
+  <div class="displayCategories" ng-repeat="selection in story.selections">
+    <div class="well">
+      <h3 class="catName">{{selection.value}}</h3>
+      <br />
+      {{selection.choice}}
+        <br />
+    </div>
+  </div>
+</div>
+<br />

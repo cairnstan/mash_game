@@ -92,7 +92,7 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
   }
   //change this to be pushed into the final object
   var pushMash = function(){
-    gameArray.unshift({mainValue: 'MASH', elements: ['M: mansion', 'A: apartment', 'S: shack', 'H: house']});
+    gameArray.unshift({mainValue: 'MASH', elements: [{value: 'M: mansion', selected: false}, {value: 'A: apartment', selected: false}, {value: 'S: shack', selected: false}, {value: 'H: house', selected: false}]});
     bestArray.unshift({value: 'MASH', optionOne: 'M: mansion', optionTwo: 'A: apartment', optionThree: 'S: shack',  optionFour: 'H: house'});
   }
 
@@ -115,13 +115,15 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
 }
 
 var randomInput = function(array){
-  return shuffleArray(array).pop();
+  return shuffleArray(array);
 }
 
+var randomArray = [];
 var randomResults = function(list){
   console.log("randomResults hit on service");
   for(var i = 0; i < list.length; i++){
     randomInput(list[i].elements);
+    randomArray.push({value: list[i].mainValue, choice: list[i].elements[0].value});
   }
 }
   return {
@@ -134,7 +136,8 @@ var randomResults = function(list){
     findCategory: findCategory,
     randomResponse: randomResponse,
     pushMash: pushMash,
-    randomResults: randomResults
+    randomResults: randomResults,
+    randomArray: randomArray
 
   }
 
