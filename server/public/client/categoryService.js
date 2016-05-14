@@ -47,7 +47,7 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
         case "live":
         cat_id = 3;
         break;
-        case "love":
+        case "like":
         cat_id = 4;
         break;
         case "ride":
@@ -136,15 +136,15 @@ var storyTime = function(){
       sentence = 'You will live in a(n) ' + randomArray[j].choice + '.';
       break;
       case "superpower":
-      sentence = 'You will save or destroy the world with your powers of ' + randomArray[j].choice + '.';
+      sentence = 'You will save (or destroy) the world with your powers of ' + randomArray[j].choice + '.';
       break;
       case "pet":
       sentence = 'You will live with your pet ' + randomArray[j].choice + '.';
       break;
       case "live":
-      sentence = 'The place you will call home will be ' + randomArray[j].choice + '.';
+      sentence = 'The place you call home will be ' + randomArray[j].choice + '.';
       break;
-      case "love":
+      case "like":
       sentence = 'Your relationship with ' + randomArray[j].choice + ' will be just as you imagine.';
       break;
       case "ride":
@@ -154,16 +154,16 @@ var storyTime = function(){
       sentence = 'Working as a ' + randomArray[j].choice + ' will fulfill you.';
       break;
       case "adventure":
-      sentence = 'Sometime when you least expect it, you will ' + randomArray[j].choice + '.';
+      sentence = 'Sometime when you least expect it, you will (go) ' + randomArray[j].choice + '.';
       break;
       case "movie":
       sentence = 'Everyone will want to see the movie of your life where ' + randomArray[j].choice + ' captures your essence perfectly.';
       break;
       case "biography":
-      sentence = 'The story of your life: ' + randomArray[j].choice + ', will capture the hearts of millions.';
+      sentence = 'The story of your life: "' + randomArray[j].choice + '", will capture the hearts of millions.';
       break;
       case "campaign":
-      sentence = 'You will celebrate your presidential victory from a successful campaign built on the slogan of: ' + randomArray[j].choice + '!';
+      sentence = 'You will celebrate your presidential victory from a successful campaign built on the slogan of: "' + randomArray[j].choice + '!"';
       break;
       return sentence;
     }
