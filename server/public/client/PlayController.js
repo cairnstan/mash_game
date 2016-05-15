@@ -13,4 +13,5 @@ angular.module('mashApp').controller('PlayController', function(CategoryService,
     CategoryService.storyTime();
     $location.path('/story');
   }
+
 })

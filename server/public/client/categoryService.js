@@ -68,6 +68,12 @@ angular.module('mashApp').factory('CategoryService', ['$http', function($http){
         case "campaign":
         cat_id = 10;
         break;
+        case "kids":
+        cat_id = 11;
+        break;
+        case "song":
+        cat_id = 12;
+        break;
         return cat_id;
       }
 
@@ -154,7 +160,7 @@ var storyTime = function(){
       sentence = 'Working as a ' + randomArray[j].choice + ' will fulfill you.';
       break;
       case "adventure":
-      sentence = 'Sometime when you least expect it, you will (go) ' + randomArray[j].choice + '.';
+      sentence = 'Sometime when you least expect it, you will ' + randomArray[j].choice + '.';
       break;
       case "movie":
       sentence = 'Everyone will want to see the movie of your life where ' + randomArray[j].choice + ' captures your essence perfectly.';
@@ -165,11 +171,25 @@ var storyTime = function(){
       case "campaign":
       sentence = 'You will celebrate your presidential victory from a successful campaign built on the slogan of: "' + randomArray[j].choice + '!"';
       break;
+      //kids and song are not working for sentences right now.
+      case "kids":
+      sentence = 'You will raise your ' + randomArray[j].choice + ' kids to be awesome!';
+      break;
+      case "song":
+      sentence = 'Everytime you need to make an entrance, your theme song, ' + randomArray[j].choice + 'will play and get everyone ready to rock!'
       return sentence;
     }
     randomArray[j]['sentence'] = sentence;
 }
   console.log('this is updated randomArray', randomArray);
+}
+
+var clearArrays = function(){
+  // do these need to be passed into the function? bestArray, gameArray, randomArray, randomResponse
+  bestArray.length = 0;
+  gameArray.length = 0;
+  randomArray.length = 0;
+  randomResponse.length = 0;
 }
 
   return {
@@ -183,7 +203,8 @@ var storyTime = function(){
     pushMash: pushMash,
     randomResults: randomResults,
     randomArray: randomArray,
-    storyTime: storyTime
+    storyTime: storyTime,
+    clearArrays: clearArrays
   }
 
 }])

@@ -3,6 +3,9 @@
 body{
   font-family: 'Luckiest Guy', cursive;
   background-image: url('../appImages/lg-dolphin-courtship.jpg');
+  background-size: contain;
+  cursor: url('../appImages/rainbow-unicorn.jpg'), auto;
+  /*filter: brightness(200%);*/
   font-weight: bold;
 }
  .jumbotron {
@@ -57,10 +60,10 @@ input{
 }
 button {
   margin: 15px;
-  background-color: #F9C911;
+  background-color: #7FDDF7;
   box-shadow: 0 0 10px 2px black;
 }
-#userbutton, #results {
+#userbutton, #results, #restart {
   margin: 15px;
 }
 .btn:hover{
