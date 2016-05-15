@@ -176,7 +176,8 @@ var storyTime = function(){
       sentence = 'You will raise your ' + randomArray[j].choice + ' kids to be awesome!';
       break;
       case "song":
-      sentence = 'Everytime you need to make an entrance, your theme song, ' + randomArray[j].choice + 'will play and get everyone ready to rock!'
+      sentence = 'Everytime you need to make an entrance, your theme song, ' + randomArray[j].choice + 'will play and get everyone ready to rock!';
+      break;
       return sentence;
     }
     randomArray[j]['sentence'] = sentence;

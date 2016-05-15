@@ -17,6 +17,12 @@ body{
  #checkbox {
    display: block;
  }
+ .col-lg-3 {
+   /*margin: 10px;*/
+   border: none;
+   padding: 5px;
+   /*background-color: none;*/
+ }
  .well {
    background-color: #D22463;
    display: inline-block;
@@ -27,6 +33,7 @@ div{
   border: 10px solid #4D39B2;
   background-color: #FC8B11;
 }
+
 .catName{
   background-color: #81C6B4;
   padding: 10px;
