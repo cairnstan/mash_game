@@ -6,9 +6,13 @@ angular.module('mashApp').controller('HomeController', function(CategoryService,
 
   home.enterInputs = function(){
     CategoryService.getInputs(home.workingCategories.categories);
-    console.log('This is the array from the factory', CategoryService.bestArray);
-    CategoryService.findCategory();
-    $location.path('/gameInputs');
+    if(CategoryService.bestArray.length == 0){
+      alert('You have not chosen any categories.\nPlease select at least one category for game play.')
+    }else{
+      console.log('This is the array from the factory', CategoryService.bestArray);
+      CategoryService.findCategory();
+      $location.path('/gameInputs');
+  }
 
   }
 

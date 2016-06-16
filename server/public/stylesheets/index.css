@@ -73,6 +73,7 @@ button {
 #userbutton, #results, #restart {
   margin: 15px;
 }
+/*this doesn't seem to work when the computer is in full screen with toolbar hidden*/
 .btn:hover{
   color: white;
   background-image: url('../appImages/aliendolphinunicorn.jpg');
