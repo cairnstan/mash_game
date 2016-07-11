@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="mashApp">
+  <head>
+    <meta charset="utf-8">
+    <title>MASH GAME</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+
+    <!-- libraries -->
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+
+    <!-- angular source and configuration -->
+    <!-- <script src="assets/scripts/client.min.js"></script> -->
+    <script src="client/client.js"></script>
+
+    <!-- controllers -->
+    <script src="client/GameController.js"></script>
+    <script src="client/HomeController.js"></script>
+    <script src="client/InputController.js"></script>
+    <script src="client/PlayController.js"></script>
+    <script src="client/StoryController.js"></script>
+
+    <!-- services -->
+    <script src="client/categoryService.js"></script>
+
+    <base href="/" />
+  </head>
+  <body class="container-fluid" ng-controller="GameController">
+    <div class="jumbotron">
+      <h1>M.A.S.H. GAME</h1>
+      <!-- <nav class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/howToPlay">How to Play</a>
+          </li>
+          <li>
+            <a href="/startNewGame">Start New Game</a>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+
+    </div>
+
+    <div ng-view>
+
+    </div>
+
+  </body>
+</html>

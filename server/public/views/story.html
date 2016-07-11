@@ -1,0 +1,19 @@
+<h1>YOUR FUTURE AWAITS!!!!!</h1>
+<div class="flex">
+  <div class="displayCategories col-md-4" ng-repeat="selection in story.selections">
+    <div class="well">
+      <h2 class="catName">{{selection.value}}</h3>
+      <br />
+      {{selection.choice}}
+      <br />
+      <h3 class="story">
+        {{selection.sentence}}
+          <br />
+      </div>
+
+    </div>
+
+  </div>
+  <button class="btn" id="restart" ng-click="story.restartGame()">LET'S PLAY AGAIN!!!!</button>
+</div>
+<br />

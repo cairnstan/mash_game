@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h2>Enter your dreams below</h2>
+  {{input.instructions}}
+</div>
+  <div class="flex">
+
+    <!-- This allows elements to be identified by their category -->
+    <div class="well col-md-4" id="inputBox" ng-repeat="genre in input.genres track by genre.value">
+      {{genre.value}}
+      <br />
+      <input type="text" maxlength="100" ng-model="genre.optionOne" />
+      <br />
+      <input type="text" maxlength="100" ng-model="genre.optionTwo" />
+      <br />
+      <input type="text" maxlength="100" ng-model="genre.optionThree" />
+      <br />
+      <input type="text" maxlength="100" ng-model="genre.optionFour" />
+      <br />
+      <button class="btn" ng-click="input.getRandom(genre)">RANDOMIZE ME</button>
+    </div>
+
+  </div>
+  <button class="btn" id="userbutton" ng-click="input.userInput()">LET'S GO!</button>
